@@ -1,0 +1,14 @@
+<div *ngIf="cakeToShow" >
+    <h1>Baked by {{ cakeToShow.bakerName }}</h1>
+    <img src="{{ cakeToShow.imageURL }}" style="width:128px;height:128px;">
+    <!-- show average rating -->
+    <h2>Average Listing {{ cakeToShow.avg }}</h2>
+    <!-- show for loop of comments -->
+    <ul *ngIf="cakeToShow.ratings.length > 0">
+        <li *ngFor="let rating of cakeToShow.ratings">
+            Comment: {{ rating.comment }}
+            Number of Stars: {{ rating.numOfStars ? rating.numOfStars : 5}}
+        </li>
+
+    </ul>
+</div>
