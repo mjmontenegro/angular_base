@@ -7,7 +7,8 @@ const app = express();
 // app.locals.moment = require("moment");
 
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, "./client/static")));
+app.use(bodyParser.urlencoded({extended: true}))
+// app.use(express.static(path.join(__dirname, "./client/static")));
 // app.set('trust proxy', 1)
 // app.use(session({
 //     secret: "myawesomesecret",

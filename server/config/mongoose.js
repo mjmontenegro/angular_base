@@ -4,7 +4,7 @@ const fs = require("fs");
 var mongoose = require("mongoose");
 
 
-mongoose.connect('mongodb://localhost:27017/RateMyCakes', { useNewUrlParser: true });
+mongoose.connect('mongodb://localhost:27017/product_database', { useNewUrlParser: true });
 mongoose.Promise = global.Promise;
 
 
