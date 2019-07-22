@@ -3,14 +3,15 @@ import { Routes, RouterModule } from '@angular/router';
 import { EditComponent } from './edit/edit.component';
 import { NewComponent } from './new/new.component';
 import { AllComponent } from './all/all.component';
-import { HomeComponent } from './home/home.component';
-
+import { OneComponent } from './one/one.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', component: HomeComponent},
-  { path: 'products', component: AllComponent},
-  { path: 'products/new', component: NewComponent },
-  { path: 'products/edit/:id', component: EditComponent }
+  // { path: '', pathMatch: 'full', component: AllComponent},
+  { path: '', redirectTo: 'pets', pathMatch: 'full' },
+  { path: 'pets', component: AllComponent },
+  { path: 'pets/new', component: NewComponent },
+  { path: 'pets/edit/:id', component: EditComponent },
+  { path: 'pets/:id', component: OneComponent },
 ];
 
 @NgModule({

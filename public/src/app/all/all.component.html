@@ -1,13 +1,36 @@
-<div class="row" *ngIf="products">
-    <div class="col-4 col-sm-6" *ngFor="let prod of products">
+<!-- <div class="row" *ngIf="pets">
+    <div class="col-4 col-sm-6" *ngFor="let pet of pets">
         <div class="card">
-            <img src="{{ prod.img }}" class="card-img-top" alt="Product Image">
+            <img src="{{ pet.img }}" class="card-img-top" alt="Pet Image">
             <div class="card-body">
-                <h5 class="card-title">{{  prod.name  }}</h5>
-                <p class="card-text">{{  prod.price  }}</p>
-                <a [routerLink]="['edit', prod._id]" class="btn btn-primary btn-sm">Edit</a>
-                <a (click)="onDelete(prod._id)" class="btn btn-danger btn-sm text-white">Delete</a>
+                <h5 class="card-title">{{  pet.name  }}</h5>
+                <p class="card-text">{{  pet.price  }}</p>
+                <a [routerLink]="['edit', pet._id]" class="btn btn-primary btn-sm">Edit</a>
+                <a (click)="onDelete(pet._id)" class="btn btn-danger btn-sm text-white">Delete</a>
             </div>
         </div>
     </div>
+</div> -->
+
+<div class="container">
+    <table *ngIf="pets" class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Type</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pet of pets">
+            <td>{{ pet.name }}</td>
+            <td>{{ pet.type }}</td>
+            <td>
+                <a [routerLink]="['/pets/', pet._id]" class="btn btn-primary">Details</a>
+                <a [routerLink]="['edit/', pet._id]" class="btn btn-primary ml-3">Edit</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
 </div>

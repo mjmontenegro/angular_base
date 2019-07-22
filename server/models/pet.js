@@ -28,13 +28,21 @@ mongoose = require('mongoose');
 // { timestamps: true },
 // )
 
-const ProductSchema = new mongoose.Schema({
-    name: {type: String, required: [true, "Name must be provided"], minlength: [4, "Name must be at least 4 characters long."]},
-    price: {type: Number, required: [true, "Price must be provided"]},
-    img: {type: String, required: [true, "Image URL must be provided"]},
+// const SkillSchema = new mongoose.Schema({
+//     detail: {type: String},
+// })
+
+const PetSchema = new mongoose.Schema({
+    name: {type: String, required: [true, "Name must be provided"], minlength: [3, "Name must be at least 3 characters long."]},
+    type: {type: String, required: [true, "Type must be provided"], minlength: [3, "Type must be at least 3 characters long."]},
+    desc: {type: String, required: [true, "Description must be provided"], minlength: [3, "Description must be at least 3 characters long."]},
+    skill1: {type: String},
+    skill2: {type: String},
+    skill3: {type: String},
+    likes: {type: Number},
     },
     {timestamps: true});
 
 
 
-mongoose.model('Product',  ProductSchema);
+mongoose.model('Pet',  PetSchema);

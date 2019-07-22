@@ -1,11 +1,12 @@
 // const mongoose = require('mongoose');
 
-const products = require('../controllers/products');
+const pets = require('../controllers/pets');
 
 module.exports = app => {
-    app.get('/products', products.getAll);
-    app.get('/products/:id', products.getOne);
-    app.post('/products', products.create);
-    app.put('/products/:id', products.update);
-    app.delete('/products/:id', products.delete);
+    app.get('/pets', pets.getAll);
+    app.get('/pets/:id', pets.getOne);
+    app.post('/pets', pets.create);
+    app.put('/pets/:id', pets.update);
+    app.delete('/pets/:id', pets.delete);
+    app.get('/pets/name/:name', pets.checkName)
 };

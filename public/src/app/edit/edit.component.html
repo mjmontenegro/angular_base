@@ -1,19 +1,41 @@
-<h3>Edit a new Product</h3>
-<form (submit)="onSubmit()" *ngIf="editProd">
-        <div class="form-group">
-            <label for="">Name</label>
-            <p class="small text-danger" *ngIf="err.name && err.name.message">{{ err.name.message }}</p>
-            <input type="text" name="editProd.name" id="" class="form-control" [(ngModel)]="editProd.name" value="editProd.name">
+<h3>Edit this Pet</h3>
+<form (submit)="onSubmit()" *ngIf="editPet">
+    <div class="form-group">
+        <label for="editPet.name">Pet Name</label>
+        <p class="small text-danger" *ngIf="uniqueError">That name is in use.  Please enter a unique name</p>
+        <p class="small text-danger" *ngIf="err.name && err.name.message">{{ err.name.message }}</p>
+        <input type="text" name="editPet.name" id="" class="form-control w-50" [(ngModel)]="editPet.name"
+            required minlength="3" #name="ngModel" [value]=editPet.name>
+        <p *ngIf="name.errors" class="errors">Name is required and must be at least 3 characters</p>
         </div>
-        <div class="form-group">
-            <label for="">Price</label>
-            <p class="small text-danger" *ngIf="err.price && err.price.message">{{ err.price.message }}</p>
-            <input type="number" class="form-control" name="editProd.price" id="" [(ngModel)]="editProd.price" value="editProd.price">
+    <div class="form-group">
+        <label for="editPet.type">Pet Type</label>
+        <p class="small text-danger" *ngIf="err.type && err.type.message">{{ err.type.message }}</p>
+        <input type="text" class="form-control w-50" name="editPet.type" [(ngModel)]="editPet.type"
+        required minlength="3" #type="ngModel" [value]=editPet.type>
+        <p *ngIf="type.errors" class="errors">Type is required and must be at least 3 characters</p>
+    </div>
+    <div class="form-group">
+        <label for="editPet.desc">Description</label>
+        <p class="small text-danger" *ngIf="err.desc && err.desc.message">{{ err.desc.message }}</p>
+        <input type="text" name="editPet.desc" id="" class="form-control w-50" [(ngModel)]="editPet.desc"
+            required #desc="ngModel" [value]=editPet.desc>
+        <p *ngIf="desc.errors" class="errors">Description is required and must be at least 3 characters</p>
+    </div>
+    <p>Skills:</p>
+    <div class="row">
+        <label class="ml-5" for="editPet.name">Skill 1:</label>
+        <input type="text" name="editPet.skill1" id="" class="form-control w-25 ml-2" [(ngModel)]="editPet.skill1" [value]=editPet.skill1>
         </div>
-        <div class="form-group">
-            <label for="">Image URL</label>
-            <p class="small text-danger" *ngIf="err.img && err.img.message">{{ err.img.message }}</p>
-            <input type="text" name="editProd.img" id="" class="form-control" [(ngModel)]="editProd.img" value="editProd.img">
-        </div>
-        <input type="submit" value="Submit" class="btn btn-primary">
-    </form>
+    <div class="row ">
+        <label class="ml-5" for="editPet.skill2">Skill 2:</label>
+        <input type="text" class="form-control w-25 ml-2" name="editPet.price" [(ngModel)]="editPet.skill2" [value]=editPet.skill2>>
+    </div>
+    <div class="row">
+        <label class="ml-5" for="editPet.skill3">Skill 3:</label>
+        <input type="text" name="editPet.skill3" id="" class="form-control w-25 ml-2" [(ngModel)]="editPet.skill3" [value]=editPet.skill3>>
+    </div>
+    <input type="submit" value="Submit" class="btn btn-primary">
+    
+    <a [routerLink]="['/pets', editPet._id]" class="btn btn-primary ml-4">Cancel</a>
+</form>

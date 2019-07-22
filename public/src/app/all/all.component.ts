@@ -7,19 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./all.component.css']
 })
 export class AllComponent implements OnInit {
-  products: any;
+  pets: any;
 
   constructor(private _httpService: HttpService) { }
 
   ngOnInit() {
     this._httpService.getAll().subscribe(data => {
-      this.products = data['data'];
+      this.pets = data['data'];
     })
   }
-  onDelete(id) {
-    this._httpService.delete(id).subscribe(data => {
-      this.ngOnInit();
-    })
-  }
+  // onDelete(id) {
+  //   this._httpService.delete(id).subscribe(data => {
+  //     this.ngOnInit();
+  //   })
+  // }
 
 }
