@@ -9,15 +9,15 @@ export class HttpService {
 
   constructor(private _http: HttpClient) {}
   
-  getAll = () => this._http.get('/cakes')
+  getAll = () => this._http.get('/products')
 
-  createItem = (itemData: any) => this._http.post(`/cakes/`, itemData)
+  getOne = (id: string) => this._http.get(`/products/${id}`)
 
-  getOne = (id: string) => this._http.get(`/cakes/${id}`)
+  create = (data: any) => this._http.post(`/products/`, data)
 
-  updateItem = (id: string, itemData: any) => this._http.put(`/cakes/${id}`, itemData)
+  update = (id: string, data: any) => this._http.put(`/products/${id}`, data)
   
-  deleteItem = (id: string) => this._http.delete(`/cakes/${id}`)
+  delete = (id: string) => this._http.delete(`/products/${id}`)
   
-  rate = (id: string, itemData: any) => this._http.put(`/cakes/${id}/rate`, itemData)
+  // rate = (id: string, data: any) => this._http.put(`/products/${id}/rate`, data)
 }

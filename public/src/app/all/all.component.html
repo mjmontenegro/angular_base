@@ -1,0 +1,13 @@
+<div class="row" *ngIf="products">
+    <div class="col-4 col-sm-6" *ngFor="let prod of products">
+        <div class="card">
+            <img src="{{ prod.img }}" class="card-img-top" alt="Product Image">
+            <div class="card-body">
+                <h5 class="card-title">{{  prod.name  }}</h5>
+                <p class="card-text">{{  prod.price  }}</p>
+                <a [routerLink]="['edit', prod._id]" class="btn btn-primary btn-sm">Edit</a>
+                <a (click)="onDelete(prod._id)" class="btn btn-danger btn-sm text-white">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>

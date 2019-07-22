@@ -1,0 +1,19 @@
+<h3>Add a new Product</h3>
+<form (submit)="onSubmit()" *ngIf="newProduct">
+    <div class="form-group">
+        <label for="newProduct.name">Name</label>
+        <p class="small text-danger" *ngIf="err.name && err.name.message">{{ err.name.message }}</p>
+        <input type="text" name="newProduct.name" id="" class="form-control" [(ngModel)]="newProduct.name">
+    </div>
+    <div class="form-group">
+        <label for="newProduct.price">Price</label>
+        <p class="small text-danger" *ngIf="err.price && err.price.message">{{ err.price.message }}</p>
+        <input type="number" class="form-control" name="newProduct.price" id="" [(ngModel)]="newProduct.price">
+    </div>
+    <div class="form-group">
+        <label for="newProduct.img">Image URL</label>
+        <p class="small text-danger" *ngIf="err.img && err.img.message">{{ err.img.message }}</p>
+        <input type="text" name="newProduct.img" id="" class="form-control" [(ngModel)]="newProduct.img">
+    </div>
+    <input type="submit" value="Submit" class="btn btn-primary">
+</form>

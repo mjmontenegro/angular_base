@@ -21,7 +21,7 @@ module.exports = {
             .catch( err => res.json({error: err}));
     },
     update: (req, res) => {
-        Product.updateOne({ _id: req.params.id }, { $set: req.body })
+        Product.updateOne({ _id: req.params.id }, { $set: req.body }, { runValidators: true, context: 'query' })
             .then(data => res.json({ message: "Success", data: data }))
             .catch(err => res.json({ message: "Error", error: err }));
     },

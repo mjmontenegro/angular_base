@@ -1,39 +1,15 @@
-<div class="root">
-  <h1>Rate my cakes</h1>
-  <div class="addOne">
-    <form (submit)=onSubmitCreate()>
-      <label for="cake.bakerName">Baker name:</label>
-      <input type="text" name="newCake.bakerName" [(ngModel)]="newCake.bakerName">
-      <label for="cake.imageURL">Image url:</label>
-      <input type="text" name="newCake.imageURL" [(ngModel)]="newCake.imageURL">
-      <input type="submit" value="Submit">
-    </form>
-  </div>
-
-  <div class="showAll">
-    <ul>
-      <li *ngFor="let cake of cakes">
-        <img (click)="onClickPic(cake._id)" src="{{ cake.imageURL }}" style="width:128px;height:128px;">
-        <form #Rating="ngForm" (submit)='onSubmitRating(Rating.value, cake)'>
-          <label for="numOfStars">Rating</label>
-          <select name="numOfStars" ngModel>
-            <option value="1">1 stars</option>
-            <option value="2">2 stars</option>
-            <option value="3">3 stars</option>
-            <option value="4">4 stars</option>
-            <option selected value="5">5 stars</option>
-          </select>
-          <label for="comment">Comment</label>
-          <input type="text" name="comment" ngModel>
-          <input type="submit" value="Rate!">
-        </form>
-      </li>
-
-    </ul>
-  </div>
-
-  <app-show-cake [cakeToShow]="selectedCake">
-  </app-show-cake>
-
+<div class="container">
+  <h1 class="display-4 text-center">Product Manager</h1>
+  <ul class="nav">
+    <li class="nav-item">
+      <a [routerLink]="['']" class="nav-link">Home</a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['products']" class="nav-link">Product List</a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['products/new']" class="nav-link">New Product</a>
+    </li>
+  </ul>
   <router-outlet></router-outlet>
 </div>

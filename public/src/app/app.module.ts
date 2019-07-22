@@ -7,14 +7,18 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-// import { TaskComponent } from './task/task.component';
-import { ShowCakeComponent } from './show-cake/show-cake.component';
+import { EditComponent } from './edit/edit.component';
+import { HomeComponent } from './home/home.component';
+import { NewComponent } from './new/new.component';
+import { AllComponent } from './all/all.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    // TaskComponent,
-    ShowCakeComponent
+    EditComponent,
+    HomeComponent,
+    NewComponent,
+    AllComponent
   ],
   imports: [
     BrowserModule,
