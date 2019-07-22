@@ -1,0 +1,7 @@
+.ng-pristine ~ .errors {
+    display: none;
+}
+.ng-dirty ~ .errors {
+    display: block;
+    color: red;
+}
